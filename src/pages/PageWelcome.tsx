@@ -1,5 +1,10 @@
 import { useContext } from "react";
 import { AppContext } from "../AppContext";
+import {camelCase} from 'lodash-es';
+
+const message = 'Welcome to this info site.';
+const messageIdCode = camelCase(message);
+console.log(messageIdCode);
 
 export const PageWelcome = () => {
 	const { message, members, errorMessage } = useContext(AppContext);
@@ -15,7 +20,7 @@ export const PageWelcome = () => {
 					return (
 						<li key={member.id}>
 							<p>
-								{member.name} (ID = {member.id})
+								{member.name} (ID = {member.id}, age = {member.age})
 							</p>
 						</li>
 					);
